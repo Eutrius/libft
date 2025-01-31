@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 20:14:54 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/21 21:38:32 by jyriarte         ###   ########.fr       */
+/*   Created: 2024/08/19 22:13:48 by jyriarte          #+#    #+#             */
+/*   Updated: 2024/08/19 22:13:49 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*new_node;
+	char	*substr;
+	size_t	i;
+	size_t	s_len;
 
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
+	if (!s)
 		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
+	s_len = ft_strlen(s);
+	if (start >= s_len || len == 0)
+		return (ft_strdup(""));
+	if (start + len > s_len)
+		len = s_len - start;
+	substr = malloc(len + 1);
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		substr[i] = s[start + i];
+		i++;
+	}
+	substr[i] = 0;
+	return (substr);
 }

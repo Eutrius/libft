@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static size_t	count_words(char const *s, char c);
 static void		append_word(char **arr, char *s, size_t arr_len);

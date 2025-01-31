@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putlnchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 22:12:28 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/19 22:12:53 by jyriarte         ###   ########.fr       */
+/*   Created: 2024/12/28 17:27:02 by jyriarte          #+#    #+#             */
+/*   Updated: 2024/12/28 17:27:26 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+void	ft_putlnchar(int c, int num, int *count)
 {
-	char	*dup;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	dup = malloc(ft_strlen(s) + 1);
-	if (!dup)
-		return (NULL);
-	while (s[i] != '\0')
+	while (i < num)
 	{
-		dup[i] = s[i];
+		ft_putlchar(c, count, NULL);
 		i++;
 	}
-	dup[i] = 0;
-	return (dup);
 }

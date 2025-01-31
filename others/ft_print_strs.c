@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_print_strs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jyriarte <jyriarte@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 22:13:43 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/21 21:11:44 by jyriarte         ###   ########.fr       */
+/*   Created: 2025/01/25 15:53:34 by jyriarte          #+#    #+#             */
+/*   Updated: 2025/01/25 15:54:34 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_print_strs(char **strs)
 {
-	char			*str;
-	unsigned int	i;
+	size_t	i;
 
-	if (!s || !f)
-		return (NULL);
 	i = 0;
-	str = malloc(ft_strlen(s) + 1);
-	if (!str)
-		return (NULL);
-	while (s[i] != '\0')
+	while (strs[i] != NULL)
 	{
-		str[i] = f(i, s[i]);
+		ft_printf("%s", strs[i]);
 		i++;
 	}
-	str[i] = 0;
-	return (str);
 }

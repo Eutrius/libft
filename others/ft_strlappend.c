@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlappend.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 22:13:48 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/19 22:13:49 by jyriarte         ###   ########.fr       */
+/*   Created: 2025/01/15 13:48:52 by jyriarte          #+#    #+#             */
+/*   Updated: 2025/01/15 14:10:33 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_strlappend(char *str, int c, size_t size)
 {
-	char	*substr;
 	size_t	i;
-	size_t	s_len;
 
-	if (!s)
-		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len || len == 0)
-		return (ft_strdup(""));
-	if (start + len > s_len)
-		len = s_len - start;
-	substr = malloc(len + 1);
-	if (!substr)
-		return (NULL);
 	i = 0;
-	while (i < len)
-	{
-		substr[i] = s[start + i];
+	while (str[i] != '\0' && i < size - 2)
 		i++;
+	if (i < size - 2)
+	{
+		str[i] = c;
+		str[i + 1] = '\0';
 	}
-	substr[i] = 0;
-	return (substr);
 }

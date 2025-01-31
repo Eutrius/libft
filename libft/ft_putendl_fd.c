@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 20:48:25 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/21 21:10:39 by jyriarte         ###   ########.fr       */
+/*   Created: 2024/08/19 22:10:32 by jyriarte          #+#    #+#             */
+/*   Updated: 2024/08/19 22:10:33 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

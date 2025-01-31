@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 22:10:40 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/19 22:10:41 by jyriarte         ###   ########.fr       */
+/*   Created: 2024/12/24 19:22:12 by jyriarte          #+#    #+#             */
+/*   Updated: 2025/01/15 14:55:07 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+# include <stddef.h>
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# define FD_LIMIT 1024
+
+char	*get_next_line(int fd);
+char	*get_next_line_fds(int fd);
+size_t	check_stash(char *stash);
+void	shift_stash(char *stash, int start);
+char	*extract_line(char *stash);
+char	*strjoin_free(char *str1, char *str2);
+
+#endif

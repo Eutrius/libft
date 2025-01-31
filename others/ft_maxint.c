@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_maxint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 22:14:13 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/19 22:14:22 by jyriarte         ###   ########.fr       */
+/*   Created: 2025/01/15 14:20:23 by jyriarte          #+#    #+#             */
+/*   Updated: 2025/01/15 14:20:38 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putchar_fd(char c, int fd)
+int	ft_maxint(int a, int b)
 {
-	write(fd, &c, 1);
+	if (a > b)
+		return (a);
+	return (b);
 }

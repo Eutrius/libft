@@ -6,17 +6,14 @@
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:23:53 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/21 21:36:32 by jyriarte         ###   ########.fr       */
+/*   Updated: 2025/01/28 00:44:17 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <limits.h>
-# include <stdint.h>
-# include <stdlib.h>
-# include <unistd.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
@@ -24,6 +21,13 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_point
+{
+	int				x;
+	int				y;
+}					t_point;
+
+// libft
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -38,9 +42,9 @@ size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strnstr(const char *big, const char *little,
@@ -69,5 +73,27 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+// ft_printf
+int					ft_printf(const char *str, ...);
+
+// get_next_line
+char				*get_next_line(int fd);
+char				*get_next_line_fds(int fd);
+
+// others
+void				ft_strlappend(char *str, int c, size_t size);
+int					ft_maxint(int a, int b);
+char				*ft_strndup(char *str, size_t nmemb);
+int					ft_strcmp(char *str1, char *str2);
+size_t				ft_strslen(char **strs);
+char				**ft_strscat(char **strs, char *str);
+void				ft_free_strs(char **strs);
+char				**ft_strsmapi(char **strs, char *(*f)(char *));
+void				ft_print_strs(char **strs);
+char				**ft_strsdup(char **strs);
+t_point				*ft_pointnew(int x, int y);
+t_point				**ft_pointscat(t_point **points, t_point *point);
+int					ft_pointcmp(t_point *p1, t_point *p2);
+void				ft_free_points(t_point **points);
 
 #endif

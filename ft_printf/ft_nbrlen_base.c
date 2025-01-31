@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_nbrlen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyriarte <jyriarte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 22:10:32 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/08/19 22:10:33 by jyriarte         ###   ########.fr       */
+/*   Created: 2024/12/28 22:38:26 by jyriarte          #+#    #+#             */
+/*   Updated: 2025/01/15 14:10:21 by jyriarte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_nbrlen_base(unsigned long long nbr, char *base)
 {
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
+	int	count;
+	int	base_len;
+
+	count = 0;
+	if (nbr == 0)
+		return (1);
+	base_len = ft_strlen(base);
+	while (nbr > 0)
+	{
+		nbr /= base_len;
+		count++;
+	}
+	return (count);
 }
